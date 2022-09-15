@@ -10,7 +10,7 @@ export const App = () => {
 
 	async function fetchPages(){
 		try {
-			const response = await fetch(`${apiURL}/wiki`);
+			const response = await fetch(`${apiURL}/wiki/`);
 			const pagesData = await response.json();
 			setPages(pagesData);
 		} catch (err) {

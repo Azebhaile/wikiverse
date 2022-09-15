@@ -103,11 +103,13 @@ router.delete("/:slug", async (req, res, next) => {
 });
 
 // GET /wiki/:slug
-router.get("/:slug", async (req, res, next) => {
+router.get("/slug", async (req, res, next) => {
+  
   try {
+    
     const page = await Page.findOne({
       where: {
-        slug: req.params.slug
+        slug: req.query.slug
       },
       include: [
         {

@@ -3,10 +3,11 @@
   "version": "1.2.1",
   "scripts": {
     "test": "jest",
+    "nodemon": "nodemon server.js",
     "client-dev": "parcel public/index.html --open",
     "server-dev": "nodemon server.js",
     "seed": "node server/seed.js",
-    "start": "parcel build public/index.html && node server.js"
+    "start": "parcel build public/index.html"
   },
   "dependencies": {
     "cors": "^2.8.5",
