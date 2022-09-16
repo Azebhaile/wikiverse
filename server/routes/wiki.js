@@ -12,6 +12,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/tags", async(req, res, next) => {
+  try{
+    const tags = await Tag.findAll();
+    res.send(tags)
+  }
+  catch(error){
+    next(error);
+  }
+})
+
 // POST /wiki
 router.post("/", async (req, res, next) => {
   try {
@@ -87,11 +97,12 @@ router.put("/:slug", async (req, res, next) => {
 });
 
 // DELETE /wiki/:slug
-router.delete("/:slug", async (req, res, next) => {
+router.delete("/slug", async (req, res, next) => {
+  console.log(req.query)
   try {
     await Page.destroy({
       where: {
-        slug: req.params.slug
+        slug: req.query.slug
       }
     });
 
